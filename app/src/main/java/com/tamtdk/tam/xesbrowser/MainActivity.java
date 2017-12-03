@@ -1,8 +1,10 @@
 package com.tamtdk.tam.xesbrowser;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     edittextvalue = "http://" + edittextvalue;
                     String url = edittextvalue;
                     brow.loadUrl(url);
+                    // Hide keyboard after using EditText
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(urledit.getWindowToken(),0);
                 }
             }
         });
